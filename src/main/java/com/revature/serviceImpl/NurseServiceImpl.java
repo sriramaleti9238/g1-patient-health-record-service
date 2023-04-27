@@ -19,7 +19,7 @@ import com.revature.service.NurseService;
 @Service
 public class NurseServiceImpl implements NurseService {
 	
-	@Autowired
+	@Autowired(required=false)
 	private NurseRepository nurseRepo;
 	
 	@Autowired

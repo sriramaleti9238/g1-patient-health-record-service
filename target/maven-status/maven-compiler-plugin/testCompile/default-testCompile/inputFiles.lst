@@ -1,6 +1,5 @@
-C:\zServices\with-testing-all-microservices\g1-health-records-service\src\test\java\com\revature\service\testing\VisitServiceTests.java
-C:\zServices\with-testing-all-microservices\g1-health-records-service\src\test\java\com\revature\service\testing\TestServiceTests.java
-C:\zServices\with-testing-all-microservices\g1-health-records-service\src\test\java\com\revature\integration\testing\HealthRecordsIntegrationTesting.java
-C:\zServices\with-testing-all-microservices\g1-health-records-service\src\test\java\com\revature\service\testing\PrescriptionServiceTests.java
-C:\zServices\with-testing-all-microservices\g1-health-records-service\src\test\java\com\revature\controller\tests\HealthRecordsControllerTests.java
-C:\zServices\with-testing-all-microservices\g1-health-records-service\src\test\java\com\revature\G1HealthRecordsServiceApplicationTests.java
+C:\Users\asus\Desktop\dpractice\g1-patient-health-record-service\src\test\java\com\revature\controller\tests\HealthRecordsControllerTests.java
+C:\Users\asus\Desktop\dpractice\g1-patient-health-record-service\src\test\java\com\revature\integration\testing\HealthRecordsIntegrationTesting.java
+C:\Users\asus\Desktop\dpractice\g1-patient-health-record-service\src\test\java\com\revature\service\testing\PrescriptionServiceTests.java
+C:\Users\asus\Desktop\dpractice\g1-patient-health-record-service\src\test\java\com\revature\service\testing\TestServiceTests.java
+C:\Users\asus\Desktop\dpractice\g1-patient-health-record-service\src\test\java\com\revature\service\testing\VisitServiceTests.java

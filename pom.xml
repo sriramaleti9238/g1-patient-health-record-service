@@ -13,23 +13,20 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>g1-health-records-service</name>
 	<description>Demo project for Spring Boot</description>
-	
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
 		
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-config</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
@@ -39,7 +36,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
+		-->
 		<dependency>
 			<groupId>com.mashape.unirest</groupId>
 			<artifactId>unirest-java</artifactId>
@@ -124,18 +121,17 @@
 		</dependency>
 		
 	</dependencies>
-	
 	<dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>
@@ -170,16 +166,13 @@
 							<includes>
 								<include>com/revature/controller/*.*</include>
 								<include>com/revature/serviceImpl/*.*</include>
-								
 							</includes>
 							<excludes>
-				
 								<exclude>com/revature/repository/*.*</exclude>
 								<exclude>com/revature/service/*.*</exclude>
 								<exclude>com/revature/entity/*.*</exclude>
 								<exclude>com/revature/entity/dto/*.*</exclude>
 							</excludes>
-						
 						</configuration>
 					</execution>
 				</executions>

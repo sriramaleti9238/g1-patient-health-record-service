@@ -1,6 +1,5 @@
 com\revature\service\testing\VisitServiceTests.class
 com\revature\integration\testing\HealthRecordsIntegrationTesting$5.class
-com\revature\G1HealthRecordsServiceApplicationTests.class
 com\revature\service\testing\PrescriptionServiceTests.class
 com\revature\service\testing\TestServiceTests.class
 com\revature\integration\testing\HealthRecordsIntegrationTesting$1.class

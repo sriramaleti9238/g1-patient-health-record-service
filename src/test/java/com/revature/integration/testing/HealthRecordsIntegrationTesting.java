@@ -58,9 +58,9 @@ public class HealthRecordsIntegrationTesting {
 	
 	@Test
 	public void getVisitDetailsByVisitId() {
-		String uri="http://localhost:" + port + "/api/v1/visitdetails/4";
+		String uri="http://localhost:" + port + "/api/v1/visitdetails/5";
 		Map<String,Integer> pathVariable=new HashMap<>();
-		pathVariable.put("visitId",4);
+		pathVariable.put("visitId",5);
 		HttpEntity entity = new HttpEntity<>(null, null);
 		UriComponentsBuilder builder=UriComponentsBuilder.fromUriString(uri);
 		ResponseEntity<String> res=restTemplate.exchange(builder.buildAndExpand(pathVariable).toUri(), HttpMethod.GET, entity, String.class);
@@ -75,16 +75,16 @@ public class HealthRecordsIntegrationTesting {
 				HttpMethod.GET, entity, new ParameterizedTypeReference<List<VisitDto>>() {
 				});
 		List<VisitDto> v = response.getBody();
-		assertEquals(9, v.size());
+		assertEquals(2, v.size());
 
 	}
 
 	@Test
 	public void saveVisits() throws JsonMappingException, JsonProcessingException {
-		VisitDto v = new VisitDto(13, 2, 150.0f, 70.0f, 100, 80, 120.0f, 80, "O+ve", "nurse3@gmail.com",
-				"physician3@gmail.com", 1, "cold", 1);
+		VisitDto v = new VisitDto(9, 3, 150.0f, 70.0f, 100, 80, 120.0f, 80, "O+ve", "nurse3@gmail.com",
+				"physician3@gmail.com", 9, "cold", 9);
 		HttpEntity<VisitDto> entity = new HttpEntity<>(v, headers);
-		ResponseEntity<String> response = restTemplate.exchange(createURLWithPort("/api/v1/patient/2/visits"),
+		ResponseEntity<String> response = restTemplate.exchange(createURLWithPort("/api/v1/patient/3/visits"),
 				HttpMethod.POST, entity, String.class);
 		ObjectMapper mapper = mapperBuilder.build();
 		VisitDto found = mapper.readValue(response.getBody(), VisitDto.class);
@@ -95,10 +95,10 @@ public class HealthRecordsIntegrationTesting {
 	@Test
 	public void updateVisit() throws JsonMappingException, JsonProcessingException {
 		String uri = "http://localhost:" + port + "/api/v1/visitdetails/3";
-		VisitDto v = new VisitDto(3, 3, 150.0f, 70.0f, 100, 80, 120.0f, 80, "O+ve", "nurse3@gmail.com",
-				"physician3@gmail.com", 1, "cold", 1);
+		VisitDto v = new VisitDto(4, 2, 150.0f, 70.0f, 100, 80, 120.0f, 80, "AB+ve", "nurse3@gmail.com",
+				"physician3@gmail.com", 4, "cold", 4);
 		Map<String, Integer> pathVariable = new HashMap<>();
-		pathVariable.put("visitid", 3);
+		pathVariable.put("visitid", 4);
 		HttpEntity<VisitDto> entity = new HttpEntity<VisitDto>(v, headers);
 		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(uri);
 
@@ -106,14 +106,14 @@ public class HealthRecordsIntegrationTesting {
 				HttpMethod.PUT, entity, String.class);
 		ObjectMapper mapper = mapperBuilder.build();
 		VisitDto found = mapper.readValue(response.getBody(), VisitDto.class);
-		Assertions.assertEquals("O+ve", found.getBloodGroup());
+		Assertions.assertEquals("AB+ve", found.getBloodGroup());
 	}
 	
 	@Test
 	public void getVisitDetailsByAppointmentId() {
-		String uri="http://localhost:" + port + "/api/v1/visit/2";
+		String uri="http://localhost:" + port + "/api/v1/visit/4";
 		Map<String,Integer> pathVariable=new HashMap<>();
-		pathVariable.put("appointmentId",2);
+		pathVariable.put("appointmentId",4);
 		HttpEntity entity = new HttpEntity<>(null, null);
 		UriComponentsBuilder builder=UriComponentsBuilder.fromUriString(uri);
 		ResponseEntity<String> res=restTemplate.exchange(builder.buildAndExpand(pathVariable).toUri(), HttpMethod.GET, entity, String.class);
@@ -124,9 +124,9 @@ public class HealthRecordsIntegrationTesting {
 	//Get LastVisit by patient id
 		@Test
 		public void getLastVisitByPatientId() {
-			String uri="http://localhost:" + port + "/api/v1/patient/1/lastvisit";
+			String uri="http://localhost:" + port + "/api/v1/patient/3/lastvisit";
 			Map<String,Integer> pathVariable=new HashMap<>();
-			pathVariable.put("patientId",1);
+			pathVariable.put("patientId",3);
 			HttpEntity entity = new HttpEntity<>(null, null);
 			UriComponentsBuilder builder=UriComponentsBuilder.fromUriString(uri);
 			ResponseEntity<String> res=restTemplate.exchange(builder.buildAndExpand(pathVariable).toUri(), HttpMethod.GET, entity, String.class);
@@ -144,15 +144,15 @@ public class HealthRecordsIntegrationTesting {
 				new ParameterizedTypeReference<List<TestDto>>() {
 				});
 		List<TestDto> t = response.getBody();
-		assertEquals(4, t.size());
+		assertEquals(2, t.size());
 
 	}
 
 	@Test
 	public void saveTests() throws JsonMappingException, JsonProcessingException {
-		VisitDto visit = new VisitDto(4);
-		List<TestDto> testDto = Arrays.asList(new TestDto(10, "Sugar test", "Negative", "Everything looks good", visit),
-				new TestDto(11, "Blood test", "10 points", "fewer blood cells", visit));
+		VisitDto visit = new VisitDto(7);
+		List<TestDto> testDto = Arrays.asList(new TestDto(11, "Sugar test", "Negative", "Everything looks good", visit),
+				new TestDto(12, "Blood test", "10 points", "fewer blood cells", visit));
 		HttpEntity<List<TestDto>> entity = new HttpEntity<>(testDto, headers);
 		ResponseEntity<List<TestDto>> response = restTemplate.exchange(createURLWithPort("/api/v1/visitdetails/tests"),
 				HttpMethod.POST, entity, new ParameterizedTypeReference<List<TestDto>>() {
@@ -182,15 +182,15 @@ public class HealthRecordsIntegrationTesting {
 				new ParameterizedTypeReference<List<PrescriptionDto>>() {
 				});
 		List<PrescriptionDto> p = response.getBody();
-		assertEquals(4, p.size());
+		assertEquals(2, p.size());
 
 	}
 
 	@Test
 	public void savePrescription() throws JsonMappingException, JsonProcessingException {
 		List<PrescriptionDto> prescriptionDto = Arrays.asList(
-				new PrescriptionDto(10, "Dolo", "1-0-1", "After eat", new VisitDto(4)),
-				new PrescriptionDto(11, "fortamet", "1-0-0", "Before eat", new VisitDto(4)));
+				new PrescriptionDto(12, "Dolo", "1-0-1", "After eat", new VisitDto(7)),
+				new PrescriptionDto(13, "fortamet", "1-0-0", "Before eat", new VisitDto(7)));
 		HttpEntity<List<PrescriptionDto>> entity = new HttpEntity<>(prescriptionDto, headers);
 		ResponseEntity<List<PrescriptionDto>> response = restTemplate.exchange(createURLWithPort("/api/v1/visitdetails/prescription"),
 				HttpMethod.POST, entity, new ParameterizedTypeReference<List<PrescriptionDto>>() {

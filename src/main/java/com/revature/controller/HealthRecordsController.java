@@ -44,7 +44,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/health-record")
 public class HealthRecordsController {
 
 	@Autowired(required = false)
@@ -71,7 +71,7 @@ public class HealthRecordsController {
 	}
 	
 	// get visits details
-	@GetMapping("/patient/{patientId}/visits")
+	@GetMapping("/patient/{patientId}/visits")	
 	@Timed(value="getAllVisitByPatientId.time",description = "gets all visit details with patientId")
 	public ResponseEntity<?> getAllVisits(@PathVariable(name = "patientId") int patientId) {
 		
